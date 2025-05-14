@@ -1,0 +1,252 @@
+body {
+    overflow-x: hidden;
+    background-color: #f8f9fa;
+    font-family: 'Poppins';
+}
+
+#sidebar {
+    background-color: #135589;
+    min-height: 100vh;
+    color: white;
+    transition: all 0.3s;
+    position: fixed;
+    width: 250px;
+    z-index: 999;
+    left: 0;
+}
+
+/* When sidebar is toggled/hidden */
+#sidebar.hidden {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background-color: #135589;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#sidebar ul.components {
+    padding: 10px;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    display: flex;
+    gap: 5px;
+    padding: 10px 25px;
+    margin: 2px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    width: 270px;
+    max-width: 90%;
+    background-color: transparent;
+}
+
+#sidebar ul li a:hover {
+    color: #fff;
+    background: #0e3959;
+}
+
+#sidebar .sidebar-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+}
+
+.btn-logout {
+    background-color: #3b719f;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-logout:hover {
+    background-color: #2d6596;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+#content {
+    width: calc(100% - 250px);
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* When sidebar is hidden, content takes full width */
+#content.expanded {
+    width: 100%;
+    margin-left: 0;
+}
+
+.success-card {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: white;
+    border-radius: 8px;
+}
+
+.blue-button {
+    background-color: #135589;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+.blue-button:hover {
+    background-color: #0e3959;
+    color: white;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+}
+
+.menu-item i {
+    margin-right: 10px;
+    width: 20px;
+}
+
+.user-profile {
+    display: flex;
+    padding: 16px 25px;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.user-avatar i {
+    color: #135589;
+}
+
+.user-info {
+    color: white;
+    font-size: 0.9em;
+}
+
+.collapse-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.toggle-button {
+    background-color: #135589;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Show toggle button only when sidebar is hidden */
+#sidebar.hidden + #content .toggle-button {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Small additional padding for content when no sidebar */
+#content.expanded {
+    padding-left: 30px;
+}
+
+.header-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 30px 10px;
+    position: relative;
+}
+
+.back-button {
+    color: black;
+    background-color: #f8f9fa;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    
+    #sidebar.hidden {
+        margin-left: 0;
+    }
+    
+    #content {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    #content.expanded {
+        width: calc(100% - 250px);
+        margin-left: 250px;
+    }
+    
+    /* Always show toggle button on mobile when sidebar is hidden */
+    .toggle-button {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* But hide it when sidebar is visible on mobile */
+    #sidebar:not(.hidden) + #content .toggle-button {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
