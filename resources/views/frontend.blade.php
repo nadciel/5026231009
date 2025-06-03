@@ -127,7 +127,7 @@
                 </div>
             </a>
 
-            <a href="/index"
+            <a href="/ets"
                 class="btn button btn-lg btn-block border-white py-1 my-1 text-decoration-none"
                 target="_blank" style="max-width: 580px; overflow-wrap: anywhere; border-radius: 29px;">
                 <div class="row link-button justify-content-center" style="overflow-wrap: break-word;">
