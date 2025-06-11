@@ -6,6 +6,7 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\Pegawai2Controller;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\KursiController;
+use App\Http\Controllers\KeranjangBelanjaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,11 +90,8 @@ Route::post('/pegawai/update', [PegawaiController::class, 'update']);
 Route::get('/pegawai/hapus/{id}', [PegawaiController::class, 'hapus']);
 Route::get('/pegawai/cari', [PegawaiController::class, 'cari']);
 
-// crud kursi
-Route::get('/kursi', [KursiController::class, 'index']);
-Route::get('/kursi/tambah', [KursiController::class, 'tambah']);
-Route::post('/kursi/store', [KursiController::class, 'store']);
-Route::get('/kursi/edit/{id}', [KursiController::class, 'edit']);
-Route::post('/kursi/update', [KursiController::class, 'update']);
-Route::get('/kursi/hapus/{id}', [KursiController::class, 'hapus']);
-Route::get('/kursi/cari', [KursiController::class, 'cari']);
+// crud keranjangbelanja
+Route::get('/keranjangbelanja', [KeranjangBelanjaController::class, 'index']);
+Route::get('/keranjangbelanja/tambah', [KeranjangBelanjaController::class, 'tambah']);
+Route::post('/keranjangbelanja/store', [KeranjangBelanjaController::class, 'store']);
+Route::get('/keranjangbelanja/hapus/{id}', [KeranjangBelanjaController::class, 'hapus']);
