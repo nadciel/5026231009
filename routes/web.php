@@ -8,6 +8,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\KursiController;
 use App\Http\Controllers\KeranjangBelanjaController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\MyKaryawanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -111,3 +112,9 @@ Route::get('/karyawan', [KaryawanController::class, 'index']);
 Route::get('/karyawan/tambah', [KaryawanController::class, 'tambah']);
 Route::post('/karyawan/store', [KaryawanController::class, 'store']);
 Route::get('/karyawan/hapus/{id}', [KaryawanController::class, 'hapus']);
+
+// crud eas
+Route::get('/eas', [MyKaryawanController::class, 'index']);
+Route::get('/eas/edit/{kodepegawai}', [MyKaryawanController::class, 'edit']);
+Route::post('/eas/update', [MyKaryawanController::class, 'update']);
+Route::get('/eas/view/{kodepegawai}', [MyKaryawanController::class, 'view']);
